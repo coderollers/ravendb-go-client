@@ -540,6 +540,9 @@ func (re *RequestExecutor) updateTopologyAsyncWithForceUpdate(node *ServerNode, 
 			return
 		}
 		result := command.Result
+		if result == nil {
+			return
+		}
 		dbgPrintTopology(result)
 		nodeSelector := re.getNodeSelector()
 		if nodeSelector == nil {
